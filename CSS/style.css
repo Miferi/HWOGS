@@ -1,0 +1,97 @@
+body
+{
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    text-align: center;
+    padding: 20px;
+    box-shadow: 6px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    marker-start: 20px;
+    font-size: 30px;
+}
+.sansation-light {
+  font-family: "Sansation", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.sansation-regular {
+  font-family: "Sansation", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sansation-bold {
+  font-family: "Sansation", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.sansation-light-italic {
+  font-family: "Sansation", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.sansation-regular-italic {
+  font-family: "Sansation", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.sansation-bold-italic {
+ font-family: "Sansation", sans-serif;
+ font-weight: 700;
+ font-style: italic;
+}
+
+.playfair-display-light {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: #1a1a2e;
+    --accent-1: #e94560;
+    --accent-2: #0f3460;
+    --accent-3: #533483;
+    --accent-4: #16213e;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --gradient-1: linear-gradient(135deg, #e94560, #533483);
+    --gradient-2: linear-gradient(135deg, #0f3460, #533483);
+    --gradient-3: linear-gradient(135deg, #e94560, #0f3460);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent-3);
+    border-radius: 4px;
+}
