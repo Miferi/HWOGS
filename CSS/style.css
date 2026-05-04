@@ -95,3 +95,161 @@ body {
     background: var(--accent-3);
     border-radius: 4px;
 }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 4rem;
+            background: #0a0a0f;
+            color: #f0f0f5;
+            font-family: 'Inter', sans-serif;
+        }
+
+        h2 {
+            font-size: 1rem;
+            color: #a0a0b8;
+            font-weight: 400;
+        }
+
+        /* ===================== */
+        /* CUBO PEQUENO (Logo)   */
+        /* ===================== */
+        .cube-small-container {
+            width: 28px;
+            height: 28px;
+            perspective: 100px;
+        }
+
+        .cube-small {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: cubeRotate 6s linear infinite;
+        }
+
+        .cube-small .face {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, rgba(232, 69, 122, 0.6), rgba(124, 58, 237, 0.6));
+            border: 1px solid rgba(232, 69, 122, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            font-weight: 700;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .cube-small .face.front  { transform: translateZ(14px); }
+        .cube-small .face.back   { transform: rotateY(180deg) translateZ(14px); }
+        .cube-small .face.left   { transform: rotateY(-90deg) translateZ(14px); }
+        .cube-small .face.right  { transform: rotateY(90deg) translateZ(14px); }
+        .cube-small .face.top    { transform: rotateX(90deg) translateZ(14px); }
+        .cube-small .face.bottom { transform: rotateX(-90deg) translateZ(14px); }
+
+        /* ===================== */
+        /* CUBO GRANDE (Hero)    */
+        /* ===================== */
+        .cube-hero-container {
+            width: 120px;
+            height: 120px;
+            perspective: 600px;
+        }
+
+        .cube-hero {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: heroCubeRotate 8s linear infinite;
+        }
+
+        .cube-hero .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+            color: rgba(232, 69, 122, 0.9);
+            border: 1px solid rgba(232, 69, 122, 0.3);
+            background: rgba(232, 69, 122, 0.08);
+            border-radius: 8px;
+            text-shadow: 0 0 10px rgba(232, 69, 122, 0.5);
+        }
+
+        .cube-hero .face.front  { transform: translateZ(60px); }
+        .cube-hero .face.back   { transform: rotateY(180deg) translateZ(60px); }
+        .cube-hero .face.left   { transform: rotateY(-90deg) translateZ(60px); }
+        .cube-hero .face.right  { transform: rotateY(90deg) translateZ(60px); }
+        .cube-hero .face.top    { transform: rotateX(90deg) translateZ(60px); }
+        .cube-hero .face.bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+        /* ===================== */
+        /* CUBO TECH (Evolução)  */
+        /* ===================== */
+        .cube-tech-container {
+            width: 100px;
+            height: 100px;
+            perspective: 400px;
+        }
+
+        .cube-tech {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: techCubeRotate 10s linear infinite;
+        }
+
+        .cube-tech .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 1px solid rgba(232, 69, 122, 0.2);
+            background: rgba(232, 69, 122, 0.05);
+            border-radius: 8px;
+        }
+
+        .cube-tech .face.front  { transform: translateZ(50px); }
+        .cube-tech .face.back   { transform: rotateY(180deg) translateZ(50px); }
+        .cube-tech .face.left   { transform: rotateY(-90deg) translateZ(50px); }
+        .cube-tech .face.right  { transform: rotateY(90deg) translateZ(50px); }
+        .cube-tech .face.top    { transform: rotateX(90deg) translateZ(50px); }
+        .cube-tech .face.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+        /* ===================== */
+        /* KEYFRAMES DE ROTAÇÃO  */
+        /* ===================== */
+        @keyframes cubeRotate {
+            0%   { transform: rotateX(-15deg) rotateY(0deg); }
+            100% { transform: rotateX(-15deg) rotateY(360deg); }
+        }
+
+        @keyframes heroCubeRotate {
+            0%   { transform: rotateX(-10deg) rotateY(0deg); }
+            100% { transform: rotateX(-10deg) rotateY(360deg); }
+        }
+
+        @keyframes techCubeRotate {
+            0%   { transform: rotateX(-10deg) rotateY(0deg); }
+            100% { transform: rotateX(-10deg) rotateY(360deg); }
+        }
