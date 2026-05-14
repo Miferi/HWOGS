@@ -18,21 +18,9 @@
             <li><a href="#7-geracao">7 Geração</a></li>
             <li><a href="#8-geracao">8 Geração</a></li>
             <li><a href="#9-geracao">9 Geração</a></li>
+            <li><a href="#quiz">🎮 Quiz</a></li>
         </ul>
     </nav>
-
-    <!-- Cubo Pequeno (Logo) -->
-    <div class="cube-small-container">
-        <div class="cube-small">
-            <div class="face front">H</div>
-            <div class="face back">G</div>
-            <div class="face left">W</div>
-            <div class="face right">S</div>
-            <div class="face top">O</div>
-            <div class="face bottom">6</div>
-        </div>
-    </div>
-    
     <!-- Cubo Grande (Hero) -->
     <div class="cube-hero-container">
         <div class="cube-hero">
@@ -71,7 +59,7 @@
         </div>
         <div class="content-card">
             <div class="card-image">
-                <img src="../Images/8-geracao.jpg" alt="8 Geração">
+                <img src="https://gmedia.playstation.com/is/image/SIEPDC/ps4-product-thumbnail-01-en-14sep21" alt="8 Geração">
             </div>
             <h3 id="8-geracao">8 Geração</h3>
             <p>A oitava geração elevou os gráficos para 4K, trouxe a realidade virtual como plataforma viável e viu a ascensão massiva dos jogos indie. O PS4 dominou a geração com exclusivos incríveis, enquanto o Nintendo Switch inovou com seu formato híbrido.</p>
@@ -85,5 +73,23 @@
         </div>
     </div>
 
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-container">
+        <h2 class="quiz-title">🎮 Teste Seus Conhecimentos! 🎮</h2>
+        <p class="quiz-subtitle">Veja o quanto você sabe sobre a história dos videogames</p>
+        
+        <div class="quiz-wrapper">
+            <div class="quiz-questions" id="quizContent"></div>
+            <div class="quiz-result" id="quizResult" style="display: none;">
+                <div class="result-content">
+                    <h3 id="resultTitle"></h3>
+                    <p id="resultMessage"></p>
+                    <button class="btn-restart" onclick="restartQuiz()">Fazer de Novo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
+<script src="./quiz.js"></script>
 </html>
