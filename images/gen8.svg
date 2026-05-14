@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <defs>
+    <linearGradient id="ps4Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#002241;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#003d5c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="200" fill="#1a1a2e"/>
+  
+  <!-- PS4 Console -->
+  <rect x="75" y="50" width="150" height="85" fill="url(#ps4Gradient)" rx="8"/>
+  
+  <!-- Angled top -->
+  <polygon points="75,50 85,40 215,40 225,50" fill="rgba(0,34,65,0.8)"/>
+  
+  <!-- Light bar -->
+  <rect x="80" y="58" width="140" height="8" fill="rgba(0,204,255,0.4)" rx="2"/>
+  
+  <!-- Disc drive -->
+  <circle cx="100" cy="100" r="15" fill="rgba(255,255,255,0.05)" stroke="rgba(0,204,255,0.5)" stroke-width="2"/>
+  <circle cx="100" cy="100" r="8" fill="rgba(0,204,255,0.2)"/>
+  
+  <!-- Buttons -->
+  <circle cx="180" cy="85" r="4" fill="#0099ff"/>
+  <circle cx="195" cy="100" r="4" fill="#0099ff"/>
+  
+  <!-- Text -->
+  <text x="150" y="155" font-size="22" font-weight="bold" fill="#00ccff" text-anchor="middle" font-family="Arial">PS4</text>
+  <text x="150" y="172" font-size="11" fill="#888888" text-anchor="middle" font-family="Arial">4K Gaming | VR Ready</text>
+</svg>
