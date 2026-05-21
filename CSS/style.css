@@ -1,15 +1,4 @@
-body
-{
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    text-align: center;
-    padding: 20px;
-    box-shadow: 6px 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    marker-start: 20px;
-    font-size: 30px;
-}
+/* CSS file for HWOGS - História dos Videogames */
 .sansation-light {
   font-family: "Sansation", sans-serif;
   font-weight: 300;
