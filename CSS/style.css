@@ -1183,6 +1183,7 @@ body {
                 font-size: 2rem;
             }
         }
+        .card-image {
             height: 200px;
             margin: -2.5rem -2.5rem 1.5rem -2.5rem;
             border-radius: 14px 14px 0 0;
