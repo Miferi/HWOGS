@@ -12,29 +12,51 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <ul>
-            <li><a href="#5-geracao">5 Geração</a></li>
-            <li><a href="#6-geracao">6 Geração</a></li>
-            <li><a href="#7-geracao">7 Geração</a></li>
-            <li><a href="#8-geracao">8 Geração</a></li>
-            <li><a href="#9-geracao">9 Geração</a></li>
-            <li><a href="#quiz">🎮 Quiz</a></li>
-        </ul>
-    </nav>
-    <!-- Cubo Grande (Hero) -->
-    <div class="cube-hero-container">
-        <div class="cube-hero">
-            <div class="face front">HWOGS</div>
-            <div class="face back">GAME</div>
-            <div class="face left">HIST</div>
-            <div class="face right">PLAY</div>
-            <div class="face top">5-9</div>
-            <div class="face bottom">★</div>
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <div class="cube-small-container">
+                    <div class="cube-small">
+                        <div class="face front">H</div>
+                        <div class="face back">W</div>
+                        <div class="face left">O</div>
+                        <div class="face right">G</div>
+                        <div class="face top">S</div>
+                        <div class="face bottom">★</div>
+                    </div>
+                </div>
+                <span>HWOGS</span>
+            </div>
+            <ul>
+                <li><a href="#5-geracao">5 Geração</a></li>
+                <li><a href="#6-geracao">6 Geração</a></li>
+                <li><a href="#7-geracao">7 Geração</a></li>
+                <li><a href="#8-geracao">8 Geração</a></li>
+                <li><a href="#9-geracao">9 Geração</a></li>
+                <li><a href="#quiz">🎮 Quiz</a></li>
+            </ul>
         </div>
-    </div>
-
-    <h1>HWOGS</h1>
-    <h2>História dos Videogames</h2>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="cube-hero-container">
+                <div class="cube-hero">
+                    <div class="face front">HWOGS</div>
+                    <div class="face back">GAME</div>
+                    <div class="face left">HIST</div>
+                    <div class="face right">PLAY</div>
+                    <div class="face top">5-9</div>
+                    <div class="face bottom">★</div>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1>HWOGS</h1>
+                <h2>História dos Videogames</h2>
+                <p>Explore a evolução fascinante dos videogames através de 5 gerações incríveis de inovação tecnológica</p>
+            </div>
+        </div>
+    </section>
     <div class="content-cards">
         <div class="content-card">
             <div class="card-image">
@@ -74,18 +96,33 @@
     </div>
 
     <!-- Quiz Section -->
-    <section id="quiz" class="quiz-container">
-        <h2 class="quiz-title">🎮 Teste Seus Conhecimentos! 🎮</h2>
-        <p class="quiz-subtitle">Veja o quanto você sabe sobre a história dos videogames</p>
-        
-        <div class="quiz-wrapper">
-            <div class="quiz-questions" id="quizContent"></div>
-            <div class="quiz-result" id="quizResult" style="display: none;">
-                <div class="result-content">
-                    <h3 id="resultTitle"></h3>
-                    <p id="resultMessage"></p>
-                    <button class="btn-restart" onclick="restartQuiz()">Fazer de Novo</button>
+    <section id="quiz" class="quiz-section">
+        <div class="quiz-container">
+            <h2 class="quiz-title">🎮 Teste Seus Conhecimentos! 🎮</h2>
+            <p class="quiz-subtitle">Veja o quanto você sabe sobre a história dos videogames</p>
+            
+            <div class="quiz-wrapper">
+                <div class="quiz-questions" id="quizContent"></div>
+                <div class="quiz-result" id="quizResult" style="display: none;">
+                    <div class="result-content">
+                        <h3 id="resultTitle"></h3>
+                        <p id="resultMessage"></p>
+                        <input type="text" id="playerName" class="player-name-input" placeholder="Digite seu nome para salvar na classificação" maxlength="20">
+                        <button class="btn-save" onclick="saveScore()">Salvar Pontuação</button>
+                        <button class="btn-restart" onclick="restartQuiz()">Fazer de Novo</button>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ranking Section -->
+    <section class="ranking-section">
+        <div class="ranking-container">
+            <h2 class="ranking-title">🏆 Classificação Geral 🏆</h2>
+            <div class="ranking-wrapper">
+                <div id="rankingContent" class="ranking-list"></div>
+                <button class="btn-clear-ranking" onclick="clearRanking()" style="display: none;">Limpar Classificação</button>
             </div>
         </div>
     </section>

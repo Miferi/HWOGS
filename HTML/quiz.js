@@ -179,6 +179,53 @@ function showResults() {
         </div>
         <p style="margin-top: 1.5rem; font-size: 2rem;">${emoji}</p>
     `;
+    
+    // Mostrar input de nome para salvar score
+    const playerNameInput = document.getElementById('playerName');
+    playerNameInput.style.display = 'block';
+}
+
+function saveScore() {
+    const playerName = document.getElementById('playerName').value.trim();
+    
+    if (!playerName) {
+        alert('Por favor, digite seu nome!');
+        return;
+    }
+    
+    const percentage = (score / quizData.length) * 100;
+    const newScore = {
+        name: playerName,
+        score: score,
+        percentage: Math.round(percentage),
+        date: new Date().toLocaleDateString('pt-BR')
+    };
+    
+    // Carregar scores existentes
+    let scores = JSON.parse(localStorage.getItem('quizScores')) || [];
+    
+    // Adicionar novo score
+    scores.push(newScore);
+    
+    // Ordenar por score (descendente)
+    scores.sort((a, b) => b.score - a.score);
+    
+    // Manter apenas os top 10
+    scores = scores.slice(0, 10);
+    
+    // Salvar no localStorage
+    localStorage.setItem('quizScores', JSON.stringify(scores));
+    
+    // Esconder input
+    document.getElementById('playerName').style.display = 'none';
+    document.querySelector('.btn-save').style.display = 'none';
+    
+    // Atualizar ranking
+    loadRanking();
+    
+    // Mostrar mensagem de sucesso
+    const resultMessage = document.getElementById('resultMessage');
+    resultMessage.innerHTML += '<p style="color: #00ff00; margin-top: 1rem; font-weight: bold;">✓ Pontuação salva com sucesso!</p>';
 }
 
 function restartQuiz() {
@@ -188,9 +235,70 @@ function restartQuiz() {
     
     document.getElementById('quizContent').style.display = 'block';
     document.getElementById('quizResult').style.display = 'none';
+    document.getElementById('playerName').style.display = 'none';
+    document.getElementById('playerName').value = '';
     
     loadQuestion();
 }
 
+function loadRanking() {
+    const rankingContent = document.getElementById('rankingContent');
+    const scores = JSON.parse(localStorage.getItem('quizScores')) || [];
+    
+    rankingContent.innerHTML = '';
+    
+    if (scores.length === 0) {
+        rankingContent.innerHTML = '<div class="ranking-empty">Nenhuma pontuação registrada ainda. Faça o quiz para aparecer no ranking!</div>';
+        return;
+    }
+    
+    const medals = ['🥇', '🥈', '🥉'];
+    
+    scores.forEach((scoreObj, index) => {
+        const rankingItem = document.createElement('div');
+        rankingItem.className = 'ranking-item';
+        
+        if (index < 3) {
+            rankingItem.classList.add(`top-${index + 1}`);
+        }
+        
+        const medal = medals[index] || '🎮';
+        
+        rankingItem.innerHTML = `
+            <div class="ranking-position">
+                <span class="ranking-medal">${medal}</span>
+                <span class="ranking-rank">#${index + 1}</span>
+                <div>
+                    <div class="ranking-name">${scoreObj.name}</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">${scoreObj.date}</div>
+                </div>
+            </div>
+            <div class="ranking-score">
+                <span>${scoreObj.score}/${quizData.length}</span>
+                <span style="font-size: 0.9rem; color: var(--text-secondary);">(${scoreObj.percentage}%)</span>
+            </div>
+        `;
+        
+        rankingContent.appendChild(rankingItem);
+    });
+    
+    // Mostrar botão de limpar se houver scores
+    const clearButton = document.querySelector('.btn-clear-ranking');
+    if (clearButton && scores.length > 0) {
+        clearButton.style.display = 'block';
+    }
+}
+
+function clearRanking() {
+    if (confirm('Tem certeza que deseja limpar todo o ranking? Esta ação não pode ser desfeita!')) {
+        localStorage.removeItem('quizScores');
+        loadRanking();
+        document.querySelector('.btn-clear-ranking').style.display = 'none';
+    }
+}
+
 // Inicializar quiz quando a página carregar
-document.addEventListener('DOMContentLoaded', initQuiz);
+document.addEventListener('DOMContentLoaded', function() {
+    initQuiz();
+    loadRanking();
+});
